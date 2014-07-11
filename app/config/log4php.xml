@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<log4php:configuration xmlns:log4php="http://logging.apache.org/log4php/">
+    <appender name="accesslog" class="LoggerAppenderDailyFile"> 
+     	<param name="datePattern" value="Y-m-d_H" />
+        <param name="file" value="F:/log/weblog/soft.3g.cn/down_80.%s.log"/> 
+         <layout class="LoggerLayoutPattern">
+        	<param name="conversionPattern" value= "%date{Y-m-d H:i:s};%m;%n" />
+        </layout>
+    </appender>
+    <appender name="weblog" class="LoggerAppenderDailyFile"> 
+     	<param name="datePattern" value="Y-m-d" />
+        <param name="file" value="F:/log/weblog/soft.3g.cn/web_80.%s.log"/> 
+         <layout class="LoggerLayoutPattern">
+        	<param name="conversionPattern" value= "%date{Y-m-d H:i:s};%m;%n" />
+        </layout>
+    </appender>
+    <logger name="accesslog">
+		<level value="INFO" />
+		<appender_ref ref="accesslog" />
+	</logger>
+    <logger name="weblog">
+		<level value="INFO" />
+		<appender_ref ref="weblog" />
+	</logger>
+</log4php:configuration>
